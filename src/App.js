@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import Draggable from 'react-draggable';
 
 
-const Top = ({merge, insertion, heap, quick}) =>  {
-
+const Top = ({merge, insertion, quick}) =>  {
+  console.log(merge)
   return (
     <div className="Top">
       <ul className="sort">
-        <li><button onclick={merge}>Merge Sort</button></li>
-        <li><button onclick={insertion}>Insertion Sort</button></li>
-        <li><button onclick={quick}>Quick Sort</button></li>
+        <li><button onClick={merge}>Merge Sort</button></li>
+        <li><button onClick={insertion}>Insertion Sort</button></li>
+        <li><button onClick={quick}>Quick Sort</button></li>
       </ul>
     </div>
   )
@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   renderNewItems(items) {
+    console.log(items)
     let out = []
 
     let bottom = 500
@@ -47,23 +48,34 @@ class App extends Component {
       }
 
     })
-
-    this.setState({items: out});
+    console.log('out', out)
+    this.setState({items: out})
+    console.log('this.state', this.state)
   }
 
   componentDidMount() {
     this.renderNewItems(merge.data)
   }
 
+  renderMerge() {
+    this.renderNewItems(merge.data)
+  }
 
+  renderInsertion() {
+    this.renderNewItems(insertion.data)
+  }
+
+  renderQuick() {
+    this.renderNewItems(quick.data)
+  }
   render() {
     return (
       <div className="App">
         <h1 className="title">Sorting Algorithms!</h1>
         <Top
-          merge={() => this.renderNewItems(merge.data)}
-          insertion={() => this.renderNewItems(insertion.data)}
-          merge={() => this.renderNewItems(quick.data)}
+          merge={() => this.renderMerge()}
+          insertion={() => this.renderInsertion()}
+          quick={() => this.renderQuick()}
         />
         <div>{this.state.items}</div>
       </div>
@@ -164,14 +176,14 @@ const insertion = {
   name: 'Insertion',
   category: 'Worst People',
   data: [
-    'A Slow Driver',
-    'A Nazi',
-    'A Child',
-    'Drake',
-    'King Joffrey',
-    'Kim Jon Un',
-    'Leaver of shopping cart in parking space',
-    'William Cory'
+    {name: 'A Slow Driver', img: ''},
+    {name: 'A Nazi', img: ''},
+    {name: 'A Child', img: ''},
+    {name: 'Drake', img: ''},
+    {name: 'King Joffrey', img: ''},
+    {name: 'Kim Jon Un', img: ''},
+    {name: 'Leaver of shopping cart in parking space', img: ''},
+    {name: 'William Cory', img: ''}
   ]
 }
 
@@ -180,14 +192,14 @@ const quick = {
   name: 'Quick Sort',
   category: 'Would win fight',
   data: [
-    'Hailey with crossbow',
-    'Robin with war hammer',
-    'Cody with broadsword',
-    'Chucky with katana',
-    'Peter with sais',
-    'Ralph with nunchaku',
-    'Rebecca with spartan spear and shield',
-    'Lena with shuriken'
+    {name: 'Hailey with crossbow', img: ''},
+    {name: 'Robin with war hammer', img: ''},
+    {name: 'Cody with broadsword', img: ''},
+    {name: 'Chucky with katana', img: ''},
+    {name: 'Peter with sais', img: ''},
+    {name: 'Ralph with nunchaku', img: ''},
+    {name: 'Rebecca with spartan spear and shield', img: ''},
+    {name: 'Lena with shuriken', img: ''}
   ]
 }
 
