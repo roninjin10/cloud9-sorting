@@ -9,7 +9,6 @@ const Top = ({merge, insertion, heap, quick}) =>  {
       <ul className="sort">
         <li><button onclick={merge}>Merge Sort</button></li>
         <li><button onclick={insertion}>Insertion Sort</button></li>
-        <li><button onclick={heap}>Heap Sort</button></li>
         <li><button onclick={quick}>Quick Sort</button></li>
       </ul>
     </div>
@@ -64,7 +63,6 @@ class App extends Component {
         <Top
           merge={() => this.renderNewItems(merge.data)}
           insertion={() => this.renderNewItems(insertion.data)}
-          heap={() => this.renderNewItems(heap.data)}
           merge={() => this.renderNewItems(quick.data)}
         />
         <div>{this.state.items}</div>
@@ -177,24 +175,6 @@ const insertion = {
   ]
 }
 
-const heap = {
-  name: 'HeapSort',
-  category: 'Best Cities',
-  data: [
-    'Columbus',
-    'San Francisco',
-    'New York City',
-    'San Diego',
-    'Los Angeles',
-    'Chicago',
-    'Portland',
-    'Seattle',
-    'Washington DC',
-    'Pittsburgh',
-    'Denver',
-    'Las Vegas'
-  ]
-}
 
 const quick = {
   name: 'Quick Sort',
