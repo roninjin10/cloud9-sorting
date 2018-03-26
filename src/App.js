@@ -149,6 +149,19 @@ const merge = {
   ]
 }
 
+const insertionSort = array => {
+  let out = []
+  for (let i = 0; i < array.length; i++) {
+    let next = array.shift()
+    let insertIndex = out.length
+    while(insertIndex && compare(next, out[insertIndex])) {
+      insertIndex--
+    }
+    out.splice(insertIndex,0,next)
+  }
+  return out
+}
+
 const insertion = {
   name: 'Insertion',
   category: 'Worst People',
